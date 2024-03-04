@@ -1,6 +1,6 @@
-local namefont = {font = love.graphics.newFont("mnc.ttf", 24), colour = {1, 1, 1}} -- font of the name under the box (you know what im talking about)
-local hpfont = {font = love.graphics.newFont("hp.ttf", 10), colour = {1, 1, 1}}
-local menufont = {font = love.graphics.newFont("DTM-Mono.otf", 26), colour = {1, 1, 1}}
+local namefont = {font = love.graphics.newFont("assets/fonts/mnc.ttf", 24), colour = {1, 1, 1}} -- font of the name under the box (you know what im talking about)
+local hpfont = {font = love.graphics.newFont("assets/fonts/hp.ttf", 10), colour = {1, 1, 1}}
+local menufont = {font = love.graphics.newFont("assets/fonts/DTM-Mono.otf", 26), colour = {1, 1, 1}}
 local player = {x = 320, y = 240, image = love.graphics.newImage("assets/images/playersoul.png"), name = ("chara"), lv = ("19"), hp = (92), mhp = (92), kr = (1), krl = (0), buttonselected = 0} -- this is the player
 local targetFPS, targetx, targetexpression, targettorsoexpress, targetlegsexpress, targetsweat, targetname = 60, 320, "mad", "idle", "idle", "2", "Sans" -- some things got mixed in here, but its the fps and enemy expression stuff
 local frame = {x = 32, y = 250, width = 577, height = 140, thickness = 5} -- this is the box
@@ -17,7 +17,7 @@ function love.load()
     love.window.setTitle("luaengine") -- title of the window
     love.graphics.setDefaultFilter("nearest", "nearest") -- to make sure the pixilart doesnt blur
 
-    music = love.audio.newSource("MeGaLoVaNiA.mp3", "stream") -- this is placeholder music
+    music = love.audio.newSource("assets/sounds/MeGaLoVaNiA.mp3", "stream") -- this is placeholder music
     music:setLooping(true)
     love.audio.play(music)
 end
