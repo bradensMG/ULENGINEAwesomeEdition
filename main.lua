@@ -1,7 +1,7 @@
 local namefont = {font = love.graphics.newFont("mnc.ttf", 24), colour = {1, 1, 1}} -- font of the name under the box (you know what im talking about)
 local hpfont = {font = love.graphics.newFont("hp.ttf", 10), colour = {1, 1, 1}}
 local menufont = {font = love.graphics.newFont("DTM-Mono.otf", 26), colour = {1, 1, 1}}
-local player = {x = 320, y = 240, image = love.graphics.newImage("playersoul.png"), name = ("chara"), lv = ("19"), hp = (92), mhp = (92), kr = (1), krl = (0), buttonselected = 0} -- this is the player
+local player = {x = 320, y = 240, image = love.graphics.newImage("assets/images/playersoul.png"), name = ("chara"), lv = ("19"), hp = (92), mhp = (92), kr = (1), krl = (0), buttonselected = 0} -- this is the player
 local targetFPS, targetx, targetexpression, targettorsoexpress, targetlegsexpress, targetsweat, targetname = 60, 320, "mad", "idle", "idle", "2", "Sans" -- some things got mixed in here, but its the fps and enemy expression stuff
 local frame = {x = 32, y = 250, width = 577, height = 140, thickness = 5} -- this is the box
 local currentscene = 1
@@ -217,19 +217,19 @@ function love.draw()
     love.graphics.setColor(1, 1, 1)
 
     -- background
-    love.graphics.draw(love.graphics.newImage("background.png"), 15, 15)
+    love.graphics.draw(love.graphics.newImage("assets/images/background.png"), 15, 15)
 
     -- buttons
     if currentscene == 2 or currentscene == 113 or currentscene == 102 or currentscene == 103 or currentscene == 3 then
-        love.graphics.draw(love.graphics.newImage("0false.png"), 33, 431)
-        love.graphics.draw(love.graphics.newImage("1false.png"), 187, 431)
-        love.graphics.draw(love.graphics.newImage("2false.png"), 345, 431)
-        love.graphics.draw(love.graphics.newImage("3false.png"), 499, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/0false.png"), 33, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/1false.png"), 187, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/2false.png"), 345, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/3false.png"), 499, 431)
     elseif currentscene ~= 2 then
-        love.graphics.draw(love.graphics.newImage("0" .. (player.buttonselected == 0 and "true" or "false") .. ".png"), 33, 431)
-        love.graphics.draw(love.graphics.newImage("1" .. (player.buttonselected == 1 and "true" or "false") .. ".png"), 187, 431)
-        love.graphics.draw(love.graphics.newImage("2" .. (player.buttonselected == 2 and "true" or "false") .. ".png"), 345, 431)
-        love.graphics.draw(love.graphics.newImage("3" .. (player.buttonselected == 3 and "true" or "false") .. ".png"), 499, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/0" .. (player.buttonselected == 0 and "true" or "false") .. ".png"), 33, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/1" .. (player.buttonselected == 1 and "true" or "false") .. ".png"), 187, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/2" .. (player.buttonselected == 2 and "true" or "false") .. ".png"), 345, 431)
+        love.graphics.draw(love.graphics.newImage("assets/images/ui/buttons/3" .. (player.buttonselected == 3 and "true" or "false") .. ".png"), 499, 431)
     end
     
     -- name
@@ -260,10 +260,10 @@ function love.draw()
     
     -- enemy
     love.graphics.setColor(1, 1, 1)
-    love.graphics.draw(love.graphics.newImage("sanslegs" .. targetlegsexpress .. ".png"), targetx - 46, 194, 0, 2, 2)
-    love.graphics.draw(love.graphics.newImage("sanstorso" .. targettorsoexpress .. ".png"), targetx - 50 + 1.75 * math.sin(love.timer.getTime() * 2), 148, 0 + 0.03 * math.sin(love.timer.getTime() * 2), 2, 2)
-    love.graphics.draw(love.graphics.newImage("sanshead" .. targetexpression .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
-    love.graphics.draw(love.graphics.newImage("sanssweat" .. targetsweat .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
+    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanslegs" .. targetlegsexpress .. ".png"), targetx - 46, 194, 0, 2, 2)
+    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanstorso" .. targettorsoexpress .. ".png"), targetx - 50 + 1.75 * math.sin(love.timer.getTime() * 2), 148, 0 + 0.03 * math.sin(love.timer.getTime() * 2), 2, 2)
+    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanshead" .. targetexpression .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
+    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanssweat" .. targetsweat .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
 
     -- frame (battle box)
     love.graphics.setColor(0, 0, 0, 0.8)
@@ -274,7 +274,7 @@ function love.draw()
     love.graphics.rectangle("fill", frame.x, frame.y + frame.thickness, frame.thickness, frame.height - 2 * frame.thickness) -- Left
     love.graphics.rectangle("fill", frame.x + frame.width - frame.thickness, frame.y + frame.thickness, frame.thickness, frame.height - 2 * frame.thickness) -- Right
 
-    local targetsprite = love.graphics.newImage("target.png")
+    local targetsprite = love.graphics.newImage("assets/images/ui/attack/target.png")
     local desiredWidth = 562 * targetWidth
     local scale = desiredWidth / targetsprite:getWidth()
     local frameCenterX = frame.x + frame.width / 2
