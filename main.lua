@@ -260,7 +260,9 @@ function love.draw()
     
     -- enemy
     love.graphics.setColor(1, 1, 1)
-    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanslegs" .. targetlegsexpress .. ".png"), targetx - 46, 194, 0, 2, 2)
+    -- love.graphics.draw( drawable, x, y, r, sx, sy, ox, oy, kx, ky )
+
+    love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanslegs" .. targetlegsexpress .. ".png"), targetx - 45 + math.sin(love.timer.getTime() * 2) * 1, 194 + math.sin(love.timer.getTime() * 2) * 2, 0, 2, 2 + math.sin(love.timer.getTime() * 2) / -10, 0, 0, math.sin(love.timer.getTime() * 2) / -36, 0)
     love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanstorso" .. targettorsoexpress .. ".png"), targetx - 50 + 1.75 * math.sin(love.timer.getTime() * 2), 148, 0 + 0.03 * math.sin(love.timer.getTime() * 2), 2, 2)
     love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanshead" .. targetexpression .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
     love.graphics.draw(love.graphics.newImage("assets/images/enemy/sanssweat" .. targetsweat .. ".png"), targetx - 30 + 2 * math.sin(love.timer.getTime() * 2), 100 + 3 * math.sin(love.timer.getTime() * 2), 0, 2, 2)
